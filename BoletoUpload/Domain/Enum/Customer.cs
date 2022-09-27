@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TradingUpload.Domain.Enum
+namespace BoletoUpload.Domain.Enum
 {
     public enum Customer
     {

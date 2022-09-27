@@ -1,4 +1,4 @@
-﻿namespace TradingUpload.Domain.Enum
+﻿namespace BoletoUpload.Domain.Enum
 {
     public enum OperationType
     {

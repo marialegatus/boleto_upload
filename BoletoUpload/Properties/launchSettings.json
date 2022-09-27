@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "TradingUpload": {
+    "BoletoUpload": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

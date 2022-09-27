@@ -1,7 +1,7 @@
-﻿using FluentValidation;
-using TradingUpload.Domain.Entity;
+﻿using BoletoUpload.Domain.Entity;
+using FluentValidation;
 
-namespace TradingUpload.Domain.Validation
+namespace BoletoUpload.Domain.Validation
 {
     public class BoletoValidation : AbstractValidator<Boleto>
     {

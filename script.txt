@@ -1,0 +1,46 @@
+CREATE SEQUENCE upload_id_seq;
+
+
+CREATE TABLE public.upload (
+	"time_stamp" timestamp not null default (now() at time zone ('CET')),
+	id integer NOT NULL DEFAULT nextval('upload_id_seq'),
+	operation_date date NULL,
+	customer_code varchar NULL,
+	operation_type varchar NULL,
+	stock_exchange_id varchar NULL,
+	asset_code varchar NULL,
+	broker varchar NULL,
+	quantity integer NULL,
+	unit_price double precision NULL
+);
+
+
+ALTER SEQUENCE upload_id_seq
+OWNED BY upload.id;
+
+
+
+CREATE SEQUENCE processed_upload_id_seq;
+
+
+CREATE TABLE public.processed_upload (
+	"time_stamp" timestamp not null default (now() at time zone ('CET')),
+	id integer NOT NULL DEFAULT nextval('processed_upload_id_seq'),
+	operation_date date NULL,
+	customer_code varchar NULL,
+	operation_type varchar NULL,
+	stock_exchange_id varchar NULL,
+	asset_code varchar NULL,
+	broker varchar NULL,
+	quantity integer NULL,
+	unit_price double precision NULL,
+	operation_financial_value double precision NULL,
+	operation_discount_value double precision NULL,
+	status varchar NULL,
+	error_message varchar NULL
+);
+
+
+ALTER SEQUENCE processed_upload_id_seq
+OWNED BY processed_upload.id;
+

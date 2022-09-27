@@ -1,8 +1,8 @@
-﻿using TradingUpload.Application.ViewModel;
-using TradingUpload.Application.Interface;
+﻿using BoletoUpload.Application.ViewModel;
+using BoletoUpload.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TradingUpload.Controllers
+namespace BoletoUpload.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

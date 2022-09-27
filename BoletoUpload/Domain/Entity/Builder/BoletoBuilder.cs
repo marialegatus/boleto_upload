@@ -1,7 +1,7 @@
-﻿using TradingUpload.Domain.Entity;
-using TradingUpload.Domain.Enum;
+﻿using BoletoUpload.Domain.Entity;
+using BoletoUpload.Domain.Enum;
 
-namespace TradingUpload.Domain.Aggregate.Builder
+namespace BoletoUpload.Domain.Aggregate.Builder
 {
     public class BoletoBuilder
     {

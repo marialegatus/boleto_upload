@@ -1,6 +1,6 @@
-﻿using TradingUpload.Specification.Interface;
+﻿using BoletoUpload.Specification.Interface;
 
-namespace TradingUpload.Specification
+namespace BoletoUpload.Specification
 {
     public class CheckIfCustomerCodeIsValid : ICheckIfCustomerCodeIsValid
     {

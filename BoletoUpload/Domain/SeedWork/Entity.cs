@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace TradingUpload.Domain.SeedWork
+namespace BoletoUpload.Domain.SeedWork
 {
     public abstract class Entity
     {

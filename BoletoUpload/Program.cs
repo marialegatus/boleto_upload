@@ -1,4 +1,4 @@
-using TradingUpload.IoC;
+using BoletoUpload.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 

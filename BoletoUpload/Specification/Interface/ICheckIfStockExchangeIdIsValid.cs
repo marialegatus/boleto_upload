@@ -1,4 +1,4 @@
-﻿namespace TradingUpload.Specification.Interface
+﻿namespace BoletoUpload.Specification.Interface
 {
     public interface ICheckIfStockExchangeIdIsValid
     {

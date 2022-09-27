@@ -1,6 +1,6 @@
-﻿using TradingUpload.Application.ViewModel;
+﻿using BoletoUpload.Application.ViewModel;
 
-namespace TradingUpload.Application.Interface
+namespace BoletoUpload.Application.Interface
 {
     public interface IBoletoAppService
     {

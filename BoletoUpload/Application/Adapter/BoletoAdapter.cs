@@ -1,12 +1,12 @@
-﻿using TradingUpload.Domain.Aggregate.Builder;
-using TradingUpload.Application.ViewModel;
-using TradingUpload.Domain.Aggregate;
-using TradingUpload.Application.DTO;
-using TradingUpload.Domain.Entity;
-using TradingUpload.Domain.Enum;
+﻿using BoletoUpload.Domain.Aggregate.Builder;
+using BoletoUpload.Application.ViewModel;
+using BoletoUpload.Domain.Aggregate;
+using BoletoUpload.Application.DTO;
+using BoletoUpload.Domain.Entity;
+using BoletoUpload.Domain.Enum;
 using System.Globalization;
 
-namespace TradingUpload.Application.Adapter
+namespace BoletoUpload.Application.Adapter
 {
     public static class BoletoAdapter
     {

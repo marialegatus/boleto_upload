@@ -1,9 +1,11 @@
-﻿using TradingUpload.Specification.Interface;
-using TradingUpload.Application.Interface;
-using TradingUpload.Specification;
-using TradingUpload.Application;
+﻿using BoletoUpload.Infrastructure.Repository;
+using BoletoUpload.Infrastructure.Interface;
+using BoletoUpload.Specification.Interface;
+using BoletoUpload.Application.Interface;
+using BoletoUpload.Specification;
+using BoletoUpload.Application;
 
-namespace TradingUpload.IoC
+namespace BoletoUpload.IoC
 {
     public class NativeInjectorBootStrapper
     {
@@ -15,6 +17,8 @@ namespace TradingUpload.IoC
             services.AddScoped<ICheckIfBrokerIsValid, CheckIfBrokerIsValid>();
             services.AddScoped<ICheckIfCustomerCodeIsValid, CheckIfCustomerCodeIsValid>();
             services.AddScoped<ICheckIfStockExchangeIdIsValid, CheckIfStockExchangeIdIsValid>();
+
+            services.AddSingleton<IBoletoRepository, BoletoRepository>();
         }
     }
 }

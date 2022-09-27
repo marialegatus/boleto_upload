@@ -1,6 +1,6 @@
-﻿using TradingUpload.Domain.Entity;
+﻿using BoletoUpload.Domain.Entity;
 
-namespace TradingUpload.Domain.Aggregate
+namespace BoletoUpload.Domain.Aggregate
 {
     public class Portfolio
     {

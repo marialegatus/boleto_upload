@@ -1,4 +1,4 @@
-﻿namespace TradingUpload.Application.ViewModel
+﻿namespace BoletoUpload.Application.ViewModel
 {
     public class BoletoView
     {

@@ -1,8 +1,8 @@
-﻿using TradingUpload.Domain.Aggregate.Builder;
-using TradingUpload.Domain.Validation;
-using TradingUpload.Domain.Enum;
+﻿using BoletoUpload.Domain.Aggregate.Builder;
+using BoletoUpload.Domain.Validation;
+using BoletoUpload.Domain.Enum;
 
-namespace TradingUpload.Domain.Entity
+namespace BoletoUpload.Domain.Entity
 {
     public class Boleto : SeedWork.Entity
     {

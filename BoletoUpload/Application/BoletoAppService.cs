@@ -1,11 +1,13 @@
-﻿using TradingUpload.Specification.Interface;
-using TradingUpload.Application.Interface;
-using TradingUpload.Application.ViewModel;
-using TradingUpload.Application.Adapter;
-using TradingUpload.Application.DTO;
-using TradingUpload.Domain.Aggregate;
+﻿using BoletoUpload.Specification.Interface;
+using BoletoUpload.Application.Interface;
+using BoletoUpload.Application.ViewModel;
+using BoletoUpload.Application.Adapter;
+using BoletoUpload.Application.DTO;
+using BoletoUpload.Domain.Aggregate;
+using BoletoUpload.Infrastructure.Interface;
+using BoletoUpload.Infrastructure.Adapter;
 
-namespace TradingUpload.Application
+namespace BoletoUpload.Application
 {
     public class BoletoAppService : IBoletoAppService
     {
@@ -14,11 +16,13 @@ namespace TradingUpload.Application
         private readonly ICheckIfCustomerCodeIsValid _checkIfCustomerCodeIsValid;
         private readonly ICheckIfStockExchangeIdIsValid _checkIfStockExchangeIdIsValid;
 
+        private readonly IBoletoRepository _boletoRepository;
+
         private readonly string _fileStart;
         private readonly string _fileEnd;
         private readonly string _fileSeparator;
         public BoletoAppService(IConfiguration configuration, ICheckIfAssetCodeIsValid checkIfAssetCodeIsValid, ICheckIfBrokerIsValid checkIfBrokerIsValid,
-            ICheckIfCustomerCodeIsValid checkIfCustomerCodeIsValid, ICheckIfStockExchangeIdIsValid checkIfStockExchangeIdIsValid)
+            ICheckIfCustomerCodeIsValid checkIfCustomerCodeIsValid, ICheckIfStockExchangeIdIsValid checkIfStockExchangeIdIsValid, IBoletoRepository boletoRepository)
         {
             _fileStart = configuration.GetValue<string>("FileConfig:Start");
             _fileEnd = configuration.GetValue<string>("FileConfig:End");
@@ -28,6 +32,8 @@ namespace TradingUpload.Application
             _checkIfBrokerIsValid = checkIfBrokerIsValid;
             _checkIfCustomerCodeIsValid = checkIfCustomerCodeIsValid;
             _checkIfStockExchangeIdIsValid = checkIfStockExchangeIdIsValid;
+
+            _boletoRepository = boletoRepository;
         }
         public async Task<IEnumerable<PortfolioView>> AnalyseBoleto(IFormFile file)
         {
@@ -40,6 +46,7 @@ namespace TradingUpload.Application
                 var boleto = boletoDTO.ToEntity();
                 Portfolio portfolio = new Portfolio();
 
+                _boletoRepository.InsertUpload(boletoDTO);
 
                 var hasValidCustomerCode = _checkIfCustomerCodeIsValid.IsSatisfiedBy(boletoDTO.CustomerCode);
                 if (!hasValidCustomerCode)
@@ -75,6 +82,9 @@ namespace TradingUpload.Application
                 {
                     listAggregate.Find(x => x.CustomerCode is null || x.CustomerCode.Equals(boletoDTO.CustomerCode)).AddBoleto(boleto);
                 }
+
+                _boletoRepository.InsertProcessedUpload(boleto.ToModel(boletoDTO.CustomerCode));
+
             }
 
             return listAggregate.ToEnumerableView();
